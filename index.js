@@ -3,9 +3,9 @@ var transformTools = require('browserify-transform-tools');
 
 function isFunctionName(node) {
   return (
-    node.parent.type === 'FunctionDeclaration' ||
+    node.parent && (node.parent.type === 'FunctionDeclaration' ||
     node.parent.type === 'FunctionExpression'  ||
-    node.parent.type === 'CallExpression'
+    node.parent.type === 'CallExpression' )
   ) && !~node.parent.params.indexOf(node);
 }
 
